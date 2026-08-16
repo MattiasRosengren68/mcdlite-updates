@@ -6,6 +6,12 @@
     <description>MCDlite release updates</description>
     <language>en</language>
     <item>
+      <title>MCDlite 1.14</title>
+      <pubDate>Sun, 16 Aug 2026 10:59:01 GMT</pubDate>
+      <sparkle:releaseNotesLink>https://github.com/MattiasRosengren68/mcdlite-updates/releases/tag/v1.14</sparkle:releaseNotesLink>
+      <enclosure url="https://github.com/MattiasRosengren68/mcdlite-updates/releases/download/v1.14/MCDlite-1.14-Release-Setup.exe" sparkle:version="1.14" sparkle:shortVersionString="1.14" length="5626184" type="application/octet-stream" />
+    </item>
+    <item>
       <title>MCDlite 1.13</title>
       <pubDate>Fri, 14 Aug 2026 05:37:06 GMT</pubDate>
       <sparkle:releaseNotesLink>https://github.com/MattiasRosengren68/mcdlite-updates/releases/tag/v1.13</sparkle:releaseNotesLink>
