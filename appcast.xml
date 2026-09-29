@@ -6,6 +6,12 @@
     <description>MCDlite release updates</description>
     <language>en</language>
     <item>
+      <title>MCDlite 2.11</title>
+      <pubDate>Tue, 29 Sep 2026 12:32:06 GMT</pubDate>
+      <sparkle:releaseNotesLink>https://github.com/MattiasRosengren68/mcdlite-updates/releases/tag/v2.11</sparkle:releaseNotesLink>
+      <enclosure url="https://github.com/MattiasRosengren68/mcdlite-updates/releases/download/v2.11/MCDlite-2.11-Release-Setup.exe" sparkle:version="2.11" sparkle:shortVersionString="2.11" length="5596011" type="application/octet-stream" />
+    </item>
+    <item>
       <title>MCDlite 2.10</title>
       <pubDate>Tue, 29 Sep 2026 11:53:38 GMT</pubDate>
       <sparkle:releaseNotesLink>https://github.com/MattiasRosengren68/mcdlite-updates/releases/tag/v2.10</sparkle:releaseNotesLink>
