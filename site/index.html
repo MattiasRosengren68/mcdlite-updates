@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17324d">
+  <title>MCDlite Help 2.21</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172b3a;
+      --muted: #566978;
+      --line: #d5dee5;
+      --paper: #ffffff;
+      --canvas: #f1f5f7;
+      --accent: #087f8c;
+      --accent-soft: #dff2f1;
+      --warning: #a63b35;
+      font-family: "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--canvas); color: var(--ink); line-height: 1.6; }
+    header { background: #17324d; color: #fff; padding: 42px 24px 36px; border-bottom: 5px solid #e2ad45; }
+    .wrap { width: min(100% - 32px, 1040px); margin: 0 auto; }
+    .eyebrow { margin: 0 0 8px; color: #b9dce0; font-size: 13px; font-weight: 700; text-transform: uppercase; }
+    h1 { margin: 0; font-size: 36px; line-height: 1.15; }
+    .version { margin: 12px 0 0; color: #e2edf2; }
+    main { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 28px; padding: 28px 0 56px; }
+    nav { align-self: start; position: sticky; top: 20px; padding: 18px; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; }
+    nav strong { display: block; margin-bottom: 8px; }
+    nav a { display: block; padding: 5px 0; color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    article { min-width: 0; padding: 28px 34px; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; }
+    section + section { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 10px; font-size: 23px; }
+    p { margin: 8px 0; }
+    ul, ol { padding-left: 24px; }
+    li + li { margin-top: 5px; }
+    code { padding: 2px 5px; background: #edf2f5; border-radius: 3px; font-family: Consolas, monospace; }
+    .callout { margin-top: 14px; padding: 12px 16px; background: var(--accent-soft); border-left: 4px solid var(--accent); }
+    .risk { background: #fff0ed; border-left-color: var(--warning); }
+    figure { margin: 20px 0; }
+    figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 4px; }
+    figcaption { margin-top: 6px; color: var(--muted); font-size: 13px; }
+    footer { color: var(--muted); font-size: 13px; padding: 0 0 28px; }
+    @media (max-width: 720px) {
+      main { grid-template-columns: 1fr; gap: 14px; }
+      nav { position: static; }
+      article { padding: 22px 20px; }
+      h1 { font-size: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <p class="eyebrow">Measurement Â· Calibration Â· Diagnostics</p>
+      <h1>MCDlite Help</h1>
+      <p class="version">Guide for version <strong>2.21</strong></p>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav aria-label="On this page">
+      <strong>On this page</strong>
+      <a href="#workspace">Open an experiment</a>
+      <a href="#signals">Find and assign signals</a>
+      <a href="#display">Display values</a>
+      <a href="#record">Record data</a>
+      <a href="#videos">Video walkthroughs</a>
+    </nav>
+    <article>
+      <section id="workspace">
+        <h2>Open an experiment</h2>
+        <ol>
+          <li>Open a workspace file (<code>.mcdws</code>) from the Workspace menu.</li>
+          <li>In the workspace tree, double-click an experiment to start it.</li>
+          <li>If it is already running, choose whether to restart it. No is the default.</li>
+        </ol>
+        <div class="callout risk"><strong>EPK mismatch:</strong> using an A2L that does not match the ECU software can address the wrong signals and corrupt measurements or calibration. Ignore only when you have confirmed the difference is harmless.</div>
+        <figure>
+          <img src="assets/main_workspace.png" alt="MCDlite workspace showing the interface, experiment, and source trees">
+          <figcaption>The workspace tree lists available interfaces, experiments, and sources.</figcaption>
+        </figure>
+      </section>
+      <section id="signals">
+        <h2>Find and assign signals</h2>
+        <ol>
+          <li>Open Signal Assignment from the toolbar or press <code>Insert</code>.</li>
+          <li>Type a signal name. Search starts after a short pause; press <code>Enter</code> to search immediately.</li>
+          <li>Use <code>*</code> for any number of characters and <code>?</code> for one character. With no wildcard, partial matches are included automatically.</li>
+          <li>Select a result, choose its DAQ list, then Apply.</li>
+        </ol>
+        <p>Search displays at most 500 results. Refine the name or wildcard pattern if the result limit is reached.</p>
+      </section>
+      <section id="display">
+        <h2>Display values</h2>
+        <p>Right-click a numeric measurement and choose Display Style to switch between Numeric, Bar, Dial, and Arc. Use Display Range to set its minimum, maximum, and warning threshold.</p>
+        <p>When a value passes its warning threshold, the active warning indication flashes. The threshold itself remains marked on Bar and Arc views.</p>
+      </section>
+      <section id="record">
+        <h2>Record data</h2>
+        <p>Press <code>F8</code> to start recording. Press <code>F9</code> to stop and enter the recording details.</p>
+      </section>
+      <section id="videos">
+        <h2>Video walkthroughs</h2>
+        <p>Walkthrough recordings are hosted separately from the installer and can be linked here for this release.</p>
+      </section>
+      <footer>Help for MCDlite 2.21.</footer>
+    </article>
+  </main>
+</body>
+</html>
