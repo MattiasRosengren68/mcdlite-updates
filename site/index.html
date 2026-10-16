@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#17324d">
-  <title>MCDlite Help 2.21</title>
+  <title>MCDlite Help 2.22</title>
   <style>
     :root {
       color-scheme: light;
@@ -57,9 +57,9 @@
 <body>
   <header>
     <div class="wrap">
-      <p class="eyebrow">Measurement · Calibration · Diagnostics</p>
+      <p class="eyebrow">Measurement Â· Calibration Â· Diagnostics</p>
       <h1>MCDlite Help</h1>
-      <p class="version">Guide for version <strong>2.21</strong></p>
+      <p class="version">Guide for version <strong>2.22</strong></p>
     </div>
   </header>
   <main class="wrap">
@@ -96,6 +96,7 @@
           <li>Measurements are shown by default. Check <strong>Characteristics</strong> to include characteristics too. With no type boxes checked, both measurements and all characteristic types are shown. Checking one or more type boxes filters to those characteristic types and omits measurements.</li>
           <li>Select the result rows to add and choose <strong>Apply</strong>. New measurements go to the first DAQ list by default; use the DAQ-list checkboxes in the right-hand table to change an assignment.</li>
         </ol>
+        <p>Each DBC reference has its own CAN target. Select its source on the left to search decoded signals by message and signal name; DBC signals have one CAN assignment column rather than DAQ lists.</p>
         <p>The results table shows up to 1,000 matches. Refine the name or wildcard pattern when the result limit is reached. A dimmed result is already in another group or layer.</p>
         <p>Use the DAQ usage bars at the bottom of the dialog to check list capacity. Characteristics are added to the group rather than assigned to a DAQ list.</p>
         <figure>
@@ -121,6 +122,7 @@
           <li>Choose <strong>Stop</strong> or press <code>F9</code> to finish. Enter the Vehicle, Project, and User comment, then choose where to save the MDF4 recording (<code>.mf4</code>).</li>
         </ol>
         <p>Vehicle, Project, comment, and save path are required. The comment accepts ASCII characters only. Vehicle and Project values are remembered in the workspace for later recordings.</p>
+        <p>DBC references create their own MDF4 recordings with the DBC attached, raw CAN frames, and decoded measurements selected for display.</p>
         <figure>
           <img src="assets/stop_recorder.png" alt="Stop Recorder dialog with recording metadata and MDF4 save path fields">
           <figcaption>Stopping a recording prompts for metadata and the output MDF4 file.</figcaption>
@@ -139,7 +141,7 @@
         <h2>Video walkthroughs</h2>
         <p>Walkthrough recordings are hosted separately from the installer. Links for this version will appear here when available.</p>
       </section>
-      <footer>Help for MCDlite 2.21.</footer>
+      <footer>Help for MCDlite 2.22.</footer>
     </article>
   </main>
 </body>
