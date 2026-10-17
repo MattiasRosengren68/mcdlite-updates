@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17324d">
+  <title>MCDlite Help 2.23</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172b3a;
+      --muted: #566978;
+      --line: #d5dee5;
+      --paper: #ffffff;
+      --canvas: #f1f5f7;
+      --accent: #087f8c;
+      --accent-soft: #dff2f1;
+      --warning: #a63b35;
+      font-family: "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--canvas); color: var(--ink); line-height: 1.6; }
+    header { background: #17324d; color: #fff; padding: 42px 24px 36px; border-bottom: 5px solid #e2ad45; }
+    .wrap { width: min(100% - 32px, 1040px); margin: 0 auto; }
+    .eyebrow { margin: 0 0 8px; color: #b9dce0; font-size: 13px; font-weight: 700; text-transform: uppercase; }
+    h1 { margin: 0; font-size: 36px; line-height: 1.15; }
+    .version { margin: 12px 0 0; color: #e2edf2; }
+    main { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 28px; padding: 28px 0 56px; }
+    nav { align-self: start; position: sticky; top: 20px; padding: 18px; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; }
+    nav strong { display: block; margin-bottom: 8px; }
+    nav a { display: block; padding: 5px 0; color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    article { min-width: 0; padding: 28px 34px; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; }
+    section + section { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 10px; font-size: 23px; }
+    p { margin: 8px 0; }
+    ul, ol { padding-left: 24px; }
+    li + li { margin-top: 5px; }
+    code { padding: 2px 5px; background: #edf2f5; border-radius: 3px; font-family: Consolas, monospace; }
+    .shortcuts { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 16px; }
+    .shortcuts dt { font-weight: 700; }
+    .shortcuts dd { margin: 0; }
+    .callout { margin-top: 14px; padding: 12px 16px; background: var(--accent-soft); border-left: 4px solid var(--accent); }
+    .risk { background: #fff0ed; border-left-color: var(--warning); }
+    figure { margin: 20px 0; }
+    figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 4px; }
+    figcaption { margin-top: 6px; color: var(--muted); font-size: 13px; }
+    footer { color: var(--muted); font-size: 13px; padding: 0 0 28px; }
+    @media (max-width: 720px) {
+      main { grid-template-columns: 1fr; gap: 14px; }
+      nav { position: static; }
+      article { padding: 22px 20px; }
+      h1 { font-size: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <p class="eyebrow">Measurement Â· Calibration Â· Diagnostics</p>
+      <h1>MCDlite Help</h1>
+      <p class="version">Guide for version <strong>2.23</strong></p>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav aria-label="On this page">
+      <strong>On this page</strong>
+      <a href="#workspace">Workspaces and experiments</a>
+      <a href="#signals">Find and assign signals</a>
+      <a href="#display">Display measurements</a>
+      <a href="#record">Record data</a>
+      <a href="#shortcuts">Keyboard shortcuts</a>
+      <a href="#videos">Video walkthroughs</a>
+    </nav>
+    <article>
+      <section id="workspace">
+        <h2>Workspaces and experiments</h2>
+        <p>A workspace is a folder containing <code>workspace.mcdws</code>, its experiment files, and references to signal sources. Choose <strong>Workspace &gt; Open</strong> and select the folder. If it does not contain a workspace file yet, MCDlite can create one.</p>
+        <ol>
+          <li>Add signal sources with <strong>Workspace &gt; Add Source</strong>. Select one DBC file, or select a matching A2L and S19 file together.</li>
+          <li>Choose <strong>Workspace &gt; New Experiment</strong> to create a blank <code>.mcdexp</code> file, or <strong>Add Experiment</strong> to add an existing one. Use <strong>Import Experiment</strong> for an INCA export.</li>
+          <li>Save workspace changes with <strong>Workspace &gt; Save Workspace</strong> or <code>Ctrl+S</code>.</li>
+          <li>In the workspace tree, double-click an experiment to start it. You can also right-click it and choose <strong>Start Experiment</strong>.</li>
+        </ol>
+        <div class="callout risk"><strong>Check the EPK:</strong> if the ECU software and A2L EPK do not match, stop and confirm that the A2L is correct for the connected ECU before continuing. Searching workspace sources may find a matching source. Ignore the mismatch only after confirming it is harmless.</div>
+        <figure>
+          <img src="assets/main_workspace.png" alt="MCDlite workspace showing the interface, experiment, and source trees">
+          <figcaption>The workspace tree lists available interfaces, experiments, and sources.</figcaption>
+        </figure>
+      </section>
+      <section id="signals">
+        <h2>Find and assign signals</h2>
+        <ol>
+          <li>Open <strong>Signal Assignment</strong> from the experiment toolbar or press <code>Insert</code>.</li>
+          <li>Enter part of a name. Search runs as you type; press <code>Enter</code> to search immediately. Partial matches are included automatically. Use <code>*</code> for any number of characters or <code>?</code> for one character.</li>
+          <li>Measurements are shown by default. Check <strong>Characteristics</strong> to include characteristics too. With no type boxes checked, both measurements and all characteristic types are shown. Checking one or more type boxes filters to those characteristic types and omits measurements.</li>
+          <li>Select the result rows to add and choose <strong>Apply</strong>. New measurements go to the first DAQ list by default; use the DAQ-list checkboxes in the right-hand table to change an assignment.</li>
+        </ol>
+        <p>Each DBC reference has its own CAN target. Select its source on the left to search decoded signals by message and signal name; DBC signals have one CAN assignment column rather than DAQ lists.</p>
+        <p>The results table shows up to 1,000 matches. Refine the name or wildcard pattern when the result limit is reached. A dimmed result is already in another group or layer.</p>
+        <p>Use the DAQ usage bars at the bottom of the dialog to check list capacity. Characteristics are added to the group rather than assigned to a DAQ list.</p>
+        <figure>
+          <img src="assets/signal_assignment.png" alt="Signal Assignment dialog with characteristic type filters, matching results, and DAQ list assignments">
+          <figcaption>Filter characteristics by type, review matches, and assign measurements to DAQ lists.</figcaption>
+        </figure>
+      </section>
+      <section id="display">
+        <h2>Display measurements</h2>
+        <p>Right-click a numeric measurement and choose <strong>Display Style</strong> to switch between Numeric, Bar, Dial, and Arc. Boolean and enumeration signals do not use these numeric display styles.</p>
+        <p>For Bar, Dial, or Arc, choose <strong>Display Range</strong> to set minimum and maximum values and a warning threshold. Dial and Arc also let you set major and minor sectors. Choose <strong>Use Signal Limits</strong> to restore the limits from the signal definition.</p>
+        <p>Use the context menu's colour option to change the Bar or Arc colour. When a value crosses its warning threshold, the warning indication flashes.</p>
+        <figure>
+          <img src="assets/display_styles.png" alt="MCDlite experiment displaying numeric values, bars, dials, arcs, plots, and characteristic tables">
+          <figcaption>Measurements and characteristics can be viewed in different formats across experiment groups.</figcaption>
+        </figure>
+      </section>
+      <section id="record">
+        <h2>Record data</h2>
+        <ol>
+          <li>Start the experiment and confirm its target is connected.</li>
+          <li>Choose <strong>Record</strong> on the experiment toolbar or press <code>F8</code>.</li>
+          <li>Choose <strong>Stop</strong> or press <code>F9</code> to finish. Enter the Vehicle, Project, and User comment, then choose where to save the MDF4 recording (<code>.mf4</code>).</li>
+        </ol>
+        <p>Vehicle, Project, comment, and save path are required. The comment accepts ASCII characters only. Vehicle and Project values are remembered in the workspace for later recordings.</p>
+        <p>DBC references create their own MDF4 recordings with the DBC attached, raw CAN frames, and decoded measurements selected for display.</p>
+        <figure>
+          <img src="assets/stop_recorder.png" alt="Stop Recorder dialog with recording metadata and MDF4 save path fields">
+          <figcaption>Stopping a recording prompts for metadata and the output MDF4 file.</figcaption>
+        </figure>
+      </section>
+      <section id="shortcuts">
+        <h2>Keyboard shortcuts</h2>
+        <dl class="shortcuts">
+          <dt><code>Ctrl+S</code></dt><dd>Save the workspace.</dd>
+          <dt><code>Insert</code></dt><dd>Open Signal Assignment in the experiment.</dd>
+          <dt><code>F8</code></dt><dd>Start recording.</dd>
+          <dt><code>F9</code></dt><dd>Stop recording and enter save details.</dd>
+        </dl>
+      </section>
+      <section id="videos">
+        <h2>Video walkthroughs</h2>
+        <p>Walkthrough recordings are hosted separately from the installer. Links for this version will appear here when available.</p>
+      </section>
+      <footer>Help for MCDlite 2.23.</footer>
+    </article>
+  </main>
+</body>
+</html>
